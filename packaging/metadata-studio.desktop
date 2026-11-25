@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=Metadata Studio
+GenericName=Metadata sanitizer
+Comment=Inspect and strip metadata from images, audio and documents
+Exec=metadata-studio-gui
+Icon=metadata-studio
+Terminal=false
+Categories=Utility;AudioVideo;Audio;Graphics;
+Keywords=metadata;privacy;exif;id3;c2pa;pdf;sanitize;
+StartupNotify=false

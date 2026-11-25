@@ -1,0 +1,31 @@
+# Maintainer: Vanguard Arts SRL <https://vanguardarts.vip/>
+pkgname=metadata-studio
+pkgver=0.1.0
+pkgrel=1
+pkgdesc="Inspect and strip metadata from images, audio and documents (CLI + GUI)"
+arch=('any')
+url="https://github.com/VanguardArts/metadata-studio"
+license=('MIT')
+depends=('python' 'python-pillow' 'python-mutagen' 'python-pypdf' 'python-pyside6')
+source=("$pkgname-$pkgver.tar.gz::https://github.com/VanguardArts/metadata-studio/archive/refs/tags/v$pkgver.tar.gz")
+sha256sums=('SKIP')
+
+package() {
+    cd "$srcdir/$pkgname-$pkgver"
+    install -dm755 "$pkgdir/usr/lib/metadata-studio"
+    cp -r src/metadata_studio "$pkgdir/usr/lib/metadata-studio/metadata_studio"
+    cp packaging/cli_main.py packaging/gui_main.py "$pkgdir/usr/lib/metadata-studio/"
+
+    printf '#!/bin/sh\nexec python3 /usr/lib/metadata-studio/cli_main.py "$@"\n' > "$pkgdir/usr/bin/metadata-studio"
+    printf '#!/bin/sh\nexec python3 /usr/lib/metadata-studio/gui_main.py "$@"\n' > "$pkgdir/usr/bin/metadata-studio-gui"
+    chmod 755 "$pkgdir/usr/bin/metadata-studio" "$pkgdir/usr/bin/metadata-studio-gui"
+
+    install -Dm644 packaging/metadata-studio.desktop \
+        "$pkgdir/usr/share/applications/metadata-studio.desktop"
+    install -Dm644 packaging/metadata-studio.svg \
+        "$pkgdir/usr/share/icons/hicolor/scalable/apps/metadata-studio.svg"
+    for sz in 16 24 32 48 64 96 128 256 512; do
+        install -Dm644 "packaging/icons/hicolor/${sz}x${sz}/apps/metadata-studio.png" \
+            "$pkgdir/usr/share/icons/hicolor/${sz}x${sz}/apps/metadata-studio.png"
+    done
+}

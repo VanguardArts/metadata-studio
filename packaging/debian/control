@@ -1,0 +1,16 @@
+Package: metadata-studio
+Version: 0.1.0
+Section: utils
+Priority: optional
+Architecture: all
+Depends: python3, python3-pil, python3-mutagen, python3-pypdf, python3-pyside6
+Maintainer: Vanguard Arts SRL <https://vanguardarts.vip/>
+Homepage: https://github.com/VanguardArts/metadata-studio
+Description: inspect and strip metadata from images, audio and documents
+ Metadata Studio is a unified GUI (and CLI) for inspecting and removing
+ identifying metadata — EXIF, ID3, C2PA provenance, and PDF/document
+ properties — from images, audio and document files. Detect hidden metadata
+ and embedded thumbnails, compare files before/after sanitization, and batch
+ process or monitor entire folders.
+ .
+ Free basic version with an optional Pro tier (€9–19) via vanguardarts.vip.

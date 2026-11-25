@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>com.vanguardarts.MetadataStudio</id>
+  <name>Metadata Studio</name>
+  <summary>Inspect and strip metadata from images, audio and documents</summary>
+  <metadata_license>MIT</metadata_license>
+  <project_license>MIT</project_license>
+  <developer_name>Vanguard Arts SRL</developer_name>
+  <description>
+    <p>
+      Inspect EXIF, ID3, C2PA and PDF/document metadata; detect hidden metadata
+      and embedded thumbnails; batch-remove identifying information; compare
+      files before and after sanitization; and monitor folders for new files.
+    </p>
+  </description>
+  <launchable type="desktop-id">com.vanguardarts.MetadataStudio.desktop</launchable>
+  <url type="homepage">https://github.com/VanguardArts/metadata-studio</url>
+  <url type="bugtracker">https://github.com/VanguardArts/metadata-studio/issues</url>
+  <url type="contact">https://vanguardarts.vip/contact</url>
+  <releases>
+    <release version="0.1.0" date="2026-11-25"/>
+  </releases>
+  <content_rating type="oars-1.1"/>
+</component>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" fill="none">
+  <title>Metadata Studio</title>
+  <desc>Document with a shield and check mark, representing metadata inspection and sanitization.</desc>
+
+  <!-- Rounded document body -->
+  <rect x="96" y="64" width="320" height="384" rx="28" fill="#2B2D42"/>
+
+  <!-- Folded corner -->
+  <path d="M296 64 L416 64 L416 184 L316 184 C305 184 296 175 296 164 Z"
+        fill="#3D405B"/>
+
+  <!-- Shield (privacy / sanitize) -->
+  <path d="M256 150 L324 174 V252 C324 300 294 340 256 358 C218 340 188 300 188 252 V174 Z"
+        fill="#19B77A"/>
+
+  <!-- Check mark inside shield -->
+  <path d="M228 258 L250 280 L290 226"
+        stroke="#FFFFFF" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+
+  <!-- Three metadata "lines" under the shield -->
+  <rect x="188" y="382" width="136" height="16" rx="8" fill="#8D99AE"/>
+  <rect x="188" y="410" width="100" height="16" rx="8" fill="#6C7486"/>
+  <rect x="188" y="438" width="120" height="16" rx="8" fill="#6C7486"/>
+</svg>
