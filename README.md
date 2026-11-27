@@ -14,6 +14,13 @@ engine.
 - **Compare** files before and after sanitization.
 - **Batch processing** and **folder monitoring**.
 
+## Screenshots
+
+<p align="center">
+  <img src="docs/screenshot-inspect.png" alt="Metascrub Inspect view" width="49%">
+  <img src="docs/screenshot-compare.png" alt="Metascrub Compare view" width="49%">
+</p>
+
 ## What it detects / removes
 
 | Domain | Formats | Detects | Removes |
