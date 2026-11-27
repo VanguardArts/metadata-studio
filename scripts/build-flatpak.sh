@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
-# Build the Flatpak for Metadata Studio.
+# Build the Flatpak for Metascrub.
 #
-# Output: build/flatpak/metadata-studio.flatpak
+# Output: build/flatpak/metascrub.flatpak
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-MANIFEST="$ROOT/packaging/flatpak/com.vanguardarts.MetadataStudio.yml"
+MANIFEST="$ROOT/packaging/flatpak/com.vanguardarts.Metascrub.yml"
 OUT="$ROOT/build/flatpak"
 
 command -v flatpak-builder >/dev/null 2>&1 || {
@@ -20,7 +20,7 @@ flatpak-builder --force-clean --user --install-deps-from=flathub \
     "$OUT/build-dir" "$MANIFEST"
 
 flatpak build-export "$OUT/repo" "$OUT/build-dir"
-flatpak build-bundle "$OUT/repo" "$OUT/metadata-studio.flatpak" \
-    com.vanguardarts.MetadataStudio
+flatpak build-bundle "$OUT/repo" "$OUT/metascrub.flatpak" \
+    com.vanguardarts.Metascrub
 
-echo "✔ Flatpak built: $OUT/metadata-studio.flatpak"
+echo "✔ Flatpak built: $OUT/metascrub.flatpak"

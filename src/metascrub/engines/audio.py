@@ -1,9 +1,9 @@
 """Audio engine — ID3 (MP3) and RIFF (WAV) metadata hygiene.
 
-Adapted from Metascrub: byte-safe (never re-encodes audio), dry-run aware,
+Adapted from Audio Scrub: byte-safe (never re-encodes audio), dry-run aware,
 atomic writes, and verifies the audio payload is unchanged after a rewrite.
 
-Supports the provenance evidence Metascrub strips by default: generator
+Supports the provenance evidence Audio Scrub strips by default: generator
 comments, unsynced lyrics, origin URLs, C2PA manifests (MP3 `GEOB` / WAV
 `C2PA` chunk), encoder fingerprints, private/watermark frames, and embedded
 cover art.
@@ -20,7 +20,7 @@ from typing import List, Optional, Tuple
 from ..core.model import FileReport, Finding
 from . import _finding
 
-# --- default strip lists (mirror metascrub) ----------------------------
+# --- default strip lists (mirror audio-scrub) ----------------------------
 
 DEFAULT_STRIP_ID3_FRAMES = [
     "COMM",   # comments ("made with ...", ids)

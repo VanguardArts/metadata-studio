@@ -1,5 +1,5 @@
 {
-  description = "Metadata Studio — inspect and strip metadata from images, audio and documents";
+  description = "Metascrub — inspect and strip metadata from images, audio and documents";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -13,10 +13,10 @@
       in
       {
         packages.default = pkgs.callPackage ./default.nix { };
-        packages.metadata-studio = self.packages.${system}.default;
+        packages.metascrub = self.packages.${system}.default;
         apps.default = {
           type = "app";
-          program = "${self.packages.${system}.default}/bin/metadata-studio";
+          program = "${self.packages.${system}.default}/bin/metascrub";
         };
       });
 }

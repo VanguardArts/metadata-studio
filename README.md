@@ -1,9 +1,9 @@
-# Metadata Studio
+# Metascrub
 
 A unified GUI (and CLI) for inspecting and removing identifying metadata from
 images, audio, and documents — combining the capabilities of
-**[Metascrub](https://github.com/VanguardArts/metascrub)** (audio ID3/RIFF
-hygiene) and **[Provenance Scrubber](https://github.com/VanguardArts/provenance-scrubber)**
+**[Audio Scrub](https://github.com/VanguardArts/audio-scrub)** (audio ID3/RIFF
+hygiene) and **[Image Scrub](https://github.com/VanguardArts/image-scrub)**
 (image C2PA/EXIF/XMP/IPTC + pixel transform ladder) with a **document metadata**
 engine.
 
@@ -39,13 +39,13 @@ Native (noarch) packages for every major distro family:
 
 | Distro family | Format | Install |
 |---|---|---|
-| Debian / Ubuntu / Mint | `.deb` | `sudo dpkg -i metadata-studio_0.1.0_all.deb` |
-| Fedora / RHEL / Rocky / Alma | `.rpm` | `sudo dnf install metadata-studio-0.1.0-1.noarch.rpm` |
-| openSUSE Leap / Tumbleweed | `.rpm` | `sudo zypper install metadata-studio-0.1.0-1.noarch.rpm` |
-| Arch / Manjaro | `PKGBUILD` | `pacman -U metadata-studio-0.1.0-1-any.pkg.tar.zst` |
-| NixOS / Nix | flake | `nix profile install github:VanguardArts/metadata-studio` |
-| Any distro | Flatpak | `flatpak install com.vanguardarts.MetadataStudio` |
-| Any distro (portable) | AppImage | download `metadata-studio-*.AppImage` |
+| Debian / Ubuntu / Mint | `.deb` | `sudo dpkg -i metascrub_0.1.0_all.deb` |
+| Fedora / RHEL / Rocky / Alma | `.rpm` | `sudo dnf install metascrub-0.1.0-1.noarch.rpm` |
+| openSUSE Leap / Tumbleweed | `.rpm` | `sudo zypper install metascrub-0.1.0-1.noarch.rpm` |
+| Arch / Manjaro | `PKGBUILD` | `pacman -U metascrub-0.1.0-1-any.pkg.tar.zst` |
+| NixOS / Nix | flake | `nix profile install github:VanguardArts/metascrub` |
+| Any distro | Flatpak | `flatpak install com.vanguardarts.Metascrub` |
+| Any distro (portable) | AppImage | download `metascrub-*.AppImage` |
 | Any Linux (no root) | portable | `./install.sh` (installs to `~/.local`) |
 
 Build them locally with `make deb`, `make rpm`, `make flatpak`, `make appimage`,
@@ -55,28 +55,28 @@ or `make icons` (see `Makefile`).
 
 ```bash
 # Inspect (read-only)
-metadata-studio scan ./folder
-metadata-studio scan photo.png --json
+metascrub scan ./folder
+metascrub scan photo.png --json
 
 # Clean (dry run by default)
-metadata-studio clean ./folder --artist "Example Artist" --year 2026 --album "[001] Release"
-metadata-studio clean ./folder --apply               # actually write
-metadata-studio clean ./folder --level 2 --apply     # image transform ladder (degrade watermark)
+metascrub clean ./folder --artist "Example Artist" --year 2026 --album "[001] Release"
+metascrub clean ./folder --apply               # actually write
+metascrub clean ./folder --level 2 --apply     # image transform ladder (degrade watermark)
 
 # Verify (exit 1 if provenance signatures remain — CI-friendly)
-metadata-studio verify ./folder
+metascrub verify ./folder
 ```
 
 The CLI recurses folders, dispatches each file to the right engine by type,
 and never touches the sources on a dry run. `--level` follows the
-Provenance Scrubber ladder: `0` = lossless metadata strip, `1` = clean
+Image Scrub ladder: `0` = lossless metadata strip, `1` = clean
 re-encode, `2` = q90 + resample ×0.97 + faint noise, `3` = micro-crop +
 resample + color jitter + noise + q88.
 
 ## GUI
 
 ```bash
-metadata-studio-gui
+metascrub-gui
 ```
 
 Four tabs:
@@ -103,7 +103,7 @@ Upgrade at **https://vanguardarts.vip/**.
 
 ## Responsible use
 
-Metadata Studio is a privacy/hygiene tool: it removes personal info, service
+Metascrub is a privacy/hygiene tool: it removes personal info, service
 fingerprints and junk from files you own. Some distributors and jurisdictions
 require disclosure of AI-generated content; removing provenance metadata does
 not change a work's copyright status. You are responsible for how you use it.

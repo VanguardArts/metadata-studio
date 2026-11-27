@@ -3,9 +3,9 @@ requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "metadata-studio"
+name = "metascrub"
 version = "0.1.0"
-description = "Metadata Studio — unified metadata inspection and sanitization. Inspect EXIF, ID3, C2PA and PDF/document metadata; detect hidden metadata and embedded thumbnails; batch-remove identifying information; compare before/after; batch processing and folder monitoring."
+description = "Metascrub — unified metadata inspection and sanitization. Inspect EXIF, ID3, C2PA and PDF/document metadata; detect hidden metadata and embedded thumbnails; batch-remove identifying information; compare before/after; batch processing and folder monitoring."
 readme = "README.md"
 license = { text = "MIT" }
 authors = [{ name = "Vanguard Arts SRL" }]
@@ -23,8 +23,8 @@ yaml = ["PyYAML>=6.0"]
 dev = ["pytest>=7", "PyYAML>=6.0"]
 
 [project.scripts]
-metadata-studio = "metadata_studio.cli:main"
-metadata-studio-gui = "metadata_studio.gui.app:main"
+metascrub = "metascrub.cli:main"
+metascrub-gui = "metascrub.gui.app:main"
 
 [project.urls]
 Homepage = "https://vanguardarts.vip/"
@@ -34,7 +34,7 @@ Support = "https://vanguardarts.vip/contact"
 where = ["src"]
 
 [tool.setuptools.package-data]
-metadata_studio = ["gui/assets/*.svg"]
+metascrub = ["gui/assets/*.svg"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

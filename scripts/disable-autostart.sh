@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-# Disable Metadata Studio autostart-at-login.
+# Disable Metascrub autostart-at-login.
 set -euo pipefail
 
 AUTOSTART="${XDG_CONFIG_HOME:-$HOME/.config}/autostart"
-rm -f "$AUTOSTART/metadata-studio.desktop"
+rm -f "$AUTOSTART/metascrub.desktop"
 echo "✔ Autostart disabled"

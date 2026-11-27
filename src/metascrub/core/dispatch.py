@@ -8,10 +8,10 @@ from __future__ import annotations
 
 from pathlib import Path
 
-# Images handled by the provenance/image engine (mirrors provenance-scrubber).
+# Images handled by the provenance/image engine (mirrors image-scrub).
 IMAGE_EXTS = {".png", ".jpg", ".jpeg", ".webp", ".tif", ".tiff", ".bmp"}
 
-# Audio handled by the audio engine (mirrors metascrub; FLAC/OGG/M4A are
+# Audio handled by the audio engine (mirrors audio-scrub; FLAC/OGG/M4A are
 # intentionally listed as unsupported until adapters land — see README).
 AUDIO_EXTS = {".mp3", ".wav"}
 

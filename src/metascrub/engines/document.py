@@ -1,7 +1,7 @@
 r"""Document engine — PDF / OOXML / ODF / EPUB / HTML / RTF / SVG metadata inspection and stripping.
 
-This is the novel piece of Vanguard Metadata Studio: neither Metascrub nor
-Provenance Scrubber handles documents. It detects and removes identifying
+This is the novel piece of Vanguard Metascrub: neither Audio Scrub nor
+Image Scrub handles documents. It detects and removes identifying
 metadata (author, creator, last-modified-by, company, revision history, custom
 properties) and embedded thumbnails/previews from:
 
@@ -161,7 +161,7 @@ def _sanitize_pdf(path: str, dry_run: bool) -> FileReport:
     rep.bytes_in = len(data)
     rep.bytes_out = len(out_data)
     if not dry_run:
-        tmp = path + ".metadata-studio.tmp"
+        tmp = path + ".metascrub.tmp"
         with open(tmp, "wb") as fh:
             fh.write(out_data)
         import os
@@ -270,7 +270,7 @@ def _doc_sanitize(path: str, member: str, fields, prefix: str, fmt: str,
             else:
                 out.writestr(info, zf.read(name))
     import os
-    tmp = path + ".metadata-studio.tmp"
+    tmp = path + ".metascrub.tmp"
     with open(tmp, "wb") as fh:
         fh.write(buf.getvalue())
     os.replace(tmp, path)
@@ -375,7 +375,7 @@ def _sanitize_epub(path: str, dry_run: bool) -> FileReport:
             else:
                 out.writestr(info, zf.read(name))
     import os
-    tmp = path + ".metadata-studio.tmp"
+    tmp = path + ".metascrub.tmp"
     with open(tmp, "wb") as fh:
         fh.write(buf.getvalue())
     os.replace(tmp, path)
@@ -489,7 +489,7 @@ def _sanitize_html(path: str, ext: str, dry_run: bool) -> FileReport:
         rep.sanitized = not dry_run
         if not dry_run:
             import os
-            tmp = path + ".metadata-studio.tmp"
+            tmp = path + ".metascrub.tmp"
             Path(tmp).write_text(cleaned, encoding="utf-8")
             os.replace(tmp, path)
             rep.bytes_out = os.path.getsize(path)
@@ -516,7 +516,7 @@ def _sanitize_rtf(path: str, dry_run: bool) -> FileReport:
         rep.sanitized = not dry_run
         if not dry_run:
             import os
-            tmp = path + ".metadata-studio.tmp"
+            tmp = path + ".metascrub.tmp"
             Path(tmp).write_text(cleaned, encoding="latin-1")
             os.replace(tmp, path)
             rep.bytes_out = os.path.getsize(path)
@@ -541,7 +541,7 @@ def _sanitize_svg(path: str, dry_run: bool) -> FileReport:
         rep.sanitized = not dry_run
         if not dry_run:
             import os
-            tmp = path + ".metadata-studio.tmp"
+            tmp = path + ".metascrub.tmp"
             Path(tmp).write_text(cleaned, encoding="utf-8")
             os.replace(tmp, path)
             rep.bytes_out = os.path.getsize(path)

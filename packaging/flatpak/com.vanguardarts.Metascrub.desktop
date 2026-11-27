@@ -1,9 +1,9 @@
 [Desktop Entry]
 Type=Application
-Name=Metadata Studio
+Name=Metascrub
 Comment=Inspect and strip metadata from images, audio and documents
-Exec=metadata-studio-gui
-Icon=com.vanguardarts.MetadataStudio
+Exec=metascrub-gui
+Icon=com.vanguardarts.Metascrub
 Terminal=false
 Categories=Utility;AudioVideo;Audio;Graphics;
 Keywords=metadata;privacy;exif;id3;c2pa;pdf;sanitize;

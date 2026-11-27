@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
-# Build an RPM for Metadata Studio (Fedora, RHEL, Rocky/Alma, openSUSE).
+# Build an RPM for Metascrub (Fedora, RHEL, Rocky/Alma, openSUSE).
 #
-# Output: build/rpm/RPMS/noarch/metadata-studio-<version>-1.noarch.rpm
+# Output: build/rpm/RPMS/noarch/metascrub-<version>-1.noarch.rpm
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 VERSION="0.1.0"
-NAME="metadata-studio"
+NAME="metascrub"
 OUT="$ROOT/build/rpm"
 TARBALL="$NAME-$VERSION.tar.gz"
 
@@ -26,7 +26,7 @@ cp -a "$ROOT/src" "$ROOT/packaging" "$ROOT/LICENSE" "$ROOT/README.md" "$STAGE/"
 tar -C "$(dirname "$STAGE")" -czf "$OUT/SOURCES/$TARBALL" "$NAME-$VERSION"
 rm -rf "$(dirname "$STAGE")"
 
-rpmbuild -bb --define "_topdir $OUT" "$ROOT/packaging/rpm/metadata-studio.spec"
+rpmbuild -bb --define "_topdir $OUT" "$ROOT/packaging/rpm/metascrub.spec"
 
 echo "✔ RPM built:"
 find "$OUT/RPMS" -name '*.rpm' -exec ls -l {} \;

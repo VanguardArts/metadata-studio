@@ -1,4 +1,4 @@
-"""Tests for the Metadata Studio unified engine."""
+"""Tests for the Metascrub unified engine."""
 from __future__ import annotations
 
 import io
@@ -7,9 +7,9 @@ from pathlib import Path
 
 from PIL import Image
 
-from metadata_studio.core import service
-from metadata_studio.core.dispatch import category_for, is_supported
-from metadata_studio.engines import audio, document, image
+from metascrub.core import service
+from metascrub.core.dispatch import category_for, is_supported
+from metascrub.engines import audio, document, image
 
 
 def _make_png(path: Path, with_exif=False):

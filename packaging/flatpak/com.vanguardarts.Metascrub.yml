@@ -1,0 +1,44 @@
+# Flatpak manifest for Metascrub.
+#
+# A pure-Python app with PySide6. We use the KDE runtime (which ships Qt) and
+# install our Python dependencies from the org.freedesktop.Sdk Python
+# extensions rather than pip, so no network is needed at build time beyond the
+# declared sources.
+app-id: com.vanguardarts.Metascrub
+runtime: org.kde.Platform
+runtime-version: '6.7'
+sdk: org.kde.Sdk
+command: metascrub-gui
+finish-args:
+  - --socket=wayland
+  - --socket=fallback-x11
+  - --share=ipc
+  - --share=network
+
+add-extensions:
+  org.freedesktop.Sdk.Extension.python3:
+    directory: lib/python3
+    version: '3.12'
+    add-ld-path: lib
+
+build-options:
+  append-path: /usr/lib/sdk/python3/bin
+
+modules:
+  - name: metascrub
+    buildsystem: simple
+    build-commands:
+      - python3 -m pip install --prefix=/app --no-build-isolation pip pillow mutagen pypdf PySide6
+      - install -dm755 /app/lib/metascrub
+      - cp -r src/metascrub /app/lib/metascrub/metascrub
+      - cp packaging/cli_main.py packaging/gui_main.py /app/lib/metascrub/
+      - printf '#!/bin/sh\nexec python3 /app/lib/metascrub/cli_main.py "$@"\n' > /app/bin/metascrub
+      - printf '#!/bin/sh\nexec python3 /app/lib/metascrub/gui_main.py "$@"\n' > /app/bin/metascrub-gui
+      - chmod 755 /app/bin/metascrub /app/bin/metascrub-gui
+      - install -Dm644 packaging/metascrub.desktop /app/share/applications/com.vanguardarts.Metascrub.desktop
+      - install -Dm644 packaging/metascrub.svg /app/share/icons/hicolor/scalable/apps/com.vanguardarts.Metascrub.svg
+      - install -Dm644 packaging/flatpak/com.vanguardarts.Metascrub.metainfo.xml /app/share/metainfo/com.vanguardarts.Metascrub.metainfo.xml
+    sources:
+      - type: git
+        url: https://github.com/VanguardArts/metascrub.git
+        tag: v0.1.0

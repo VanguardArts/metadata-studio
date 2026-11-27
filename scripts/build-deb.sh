@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
-# Build a Debian/Ubuntu .deb package for Metadata Studio.
+# Build a Debian/Ubuntu .deb package for Metascrub.
 #
 # This is a pure-Python package, so we vendor the source tree at
-# /usr/lib/metadata-studio and install thin launcher shell scripts, exactly
-# like metascrub. Output: build/deb/metadata-studio_<version>_all.deb
+# /usr/lib/metascrub and install thin launcher shell scripts, exactly
+# like audio-scrub. Output: build/deb/metascrub_<version>_all.deb
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 VERSION="0.1.0"
-PKG="metadata-studio"
+PKG="metascrub"
 STAGE="$ROOT/build/deb/${PKG}_${VERSION}_all"
 DEBIAN="$STAGE/DEBIAN"
 
@@ -27,7 +27,7 @@ mkdir -p \
     "$DEBIAN"
 
 # vendor the Python package
-cp -r "$ROOT/src/metadata_studio" "$STAGE/usr/lib/$PKG/metadata_studio"
+cp -r "$ROOT/src/metascrub" "$STAGE/usr/lib/$PKG/metascrub"
 cp "$ROOT/packaging/cli_main.py" "$ROOT/packaging/gui_main.py" "$STAGE/usr/lib/$PKG/"
 
 # launcher scripts
@@ -48,8 +48,8 @@ install -m 0755 "$ROOT/packaging/debian/postinst" "$DEBIAN/postinst"
 
 cat > "$STAGE/usr/share/doc/$PKG/copyright" <<EOF
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: metadata-studio
-Source: https://github.com/VanguardArts/metadata-studio
+Upstream-Name: metascrub
+Source: https://github.com/VanguardArts/metascrub
 
 Files: *
 Copyright: 2026 Vanguard Arts SRL

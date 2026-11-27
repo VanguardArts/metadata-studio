@@ -25,7 +25,7 @@ class MainWindow(QMainWindow):
     def __init__(self, license_: License = None):
         super().__init__()
         self.license = license_ or License()
-        self.setWindowTitle("Metadata Studio")
+        self.setWindowTitle("Metascrub")
         self.resize(1100, 720)
 
         self.tabs = QTabWidget()

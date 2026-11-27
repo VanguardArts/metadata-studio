@@ -1,6 +1,6 @@
-"""Command-line interface for Metadata Studio.
+"""Command-line interface for Metascrub.
 
-Mirrors the Metascrub CLI shape (scan / clean / verify) but is format-agnostic:
+Mirrors the Audio Scrub CLI shape (scan / clean / verify) but is format-agnostic:
 it dispatches to the image, audio, and document engines by file type.
 """
 from __future__ import annotations
@@ -49,9 +49,9 @@ def _add_common(p):
 
 
 def _build_parser():
-    ap = argparse.ArgumentParser(prog="metadata-studio",
-                                 description="Metadata Studio — unified metadata inspect/clean/verify.")
-    ap.add_argument("--version", action="version", version=f"metadata-studio {__version__}")
+    ap = argparse.ArgumentParser(prog="metascrub",
+                                 description="Metascrub — unified metadata inspect/clean/verify.")
+    ap.add_argument("--version", action="version", version=f"metascrub {__version__}")
     sub = ap.add_subparsers(dest="command", required=True)
 
     sp = sub.add_parser("scan", help="Inspect metadata without modifying.")

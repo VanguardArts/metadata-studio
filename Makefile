@@ -25,8 +25,8 @@ appimage:
 
 cli-gui:
 	python -m pip install --upgrade pip pyinstaller
-	pyinstaller --onefile --name metadata-studio packaging/cli_main.py
-	pyinstaller --onefile --windowed --name metadata-studio-gui packaging/gui_main.py
+	pyinstaller --onefile --name metascrub packaging/cli_main.py
+	pyinstaller --onefile --windowed --name metascrub-gui packaging/gui_main.py
 
 clean:
 	rm -rf build dist *.spec

@@ -1,19 +1,19 @@
 #!/usr/bin/env python3
 """
-Generate the Metadata Studio PNG icon set from the canonical SVG.
+Generate the Metascrub PNG icon set from the canonical SVG.
 
-Rasterizes packaging/metadata-studio.svg (the single source of truth) to the
+Rasterizes packaging/metascrub.svg (the single source of truth) to the
 standard hicolor PNG sizes with cairosvg.
 
 Output:
-  packaging/icons/hicolor/<size>x<size>/apps/metadata-studio.png
+  packaging/icons/hicolor/<size>x<size>/apps/metascrub.png
 """
 import os
 
 import cairosvg
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SVG = os.path.join(ROOT, "packaging", "metadata-studio.svg")
+SVG = os.path.join(ROOT, "packaging", "metascrub.svg")
 ICON_DIR = os.path.join(ROOT, "packaging", "icons", "hicolor")
 
 
@@ -24,7 +24,7 @@ def main():
         os.makedirs(out_dir, exist_ok=True)
         cairosvg.svg2png(
             url=SVG,
-            write_to=os.path.join(out_dir, "metadata-studio.png"),
+            write_to=os.path.join(out_dir, "metascrub.png"),
             output_width=size,
             output_height=size,
         )

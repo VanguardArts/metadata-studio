@@ -1,6 +1,6 @@
 """Image engine — EXIF / XMP / IPTC / C2PA detection and stripping.
 
-Adapted from Provenance Scrubber's proven chunk/marker-surgery techniques:
+Adapted from Image Scrub's proven chunk/marker-surgery techniques:
 
 * PNG  — ancillary chunk surgery (drop caBX/C2PA, eXIf, text, tIME), keep
          critical + color-management chunks. Pixel-lossless.
@@ -9,7 +9,7 @@ Adapted from Provenance Scrubber's proven chunk/marker-surgery techniques:
 * WebP — RIFF chunk surgery (drop EXIF/XMP).
 * Other/TIFF/BMP — Pillow decode + clean re-encode.
 
-The ``sanitize`` transform ladder is identical in spirit to provenance-scrubber:
+The ``sanitize`` transform ladder is identical in spirit to image-scrub:
 level 0 = metadata strip only (lossless); 1 = clean re-encode (JPEG 97);
 2 = q90 + resample x0.97 + faint noise; 3 = micro-crop + resample + jitter +
 noise + q88.
